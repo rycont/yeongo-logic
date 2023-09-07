@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연고로직</title>
+    <link
+      href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+    <style>
+      * {
+        font-family: "SUIT", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://github.com/rycont/yeongo-logic">See also on GitHub!</a>
+    <h1>연고로직</h1>
+    <blockquote>
+      엄준식 프로그래밍 언어에서 큰 영감을 받았습니다. 왜냐면 제가
+      만든거거든요..
+    </blockquote>
+    <!-- <textarea name="" id="" rows="10"></textarea>
+    <button>Run!</button> -->
+    <h2>고연로직이 아닌 이유</h2>
+    <p>
+      "로직"이라는 단어의 바로 앞에 "고"가 붙어야 더 자연스럽습니다. "고"가
+      로직에 더 잘 어울리기 때문에 연고로직이라고 합니다.
+    </p>
+    <h2>문법</h2>
+    <p>
+      하나의 명령어에는 하나의 인자가 대응됩니다. 명령어와 인자의 쌍을
+      <b>커맨드</b>라고 합니다
+    </p>
+    <code>명령어 인자</code>
+    <p>연고로직은 커맨드를 나열하여 작성합니다.</p>
+    <code>명령어 인자 명령어 인자 명령어 인자 명령어 인자 명령어 인자...</code>
+    <p>
+      각 명령어와 인자는 양의 정수입니다. 명령어의 리스트는 다음과 같습니다.
+      인자를 편의상 <code>arg</code>라고 표현합니다.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>명령어</th>
+          <th>설명</th>
+          <th>대응되는 코드</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>너무 고결하여 사용되지 않음</td>
+          <td>Holy</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><code>arg</code>를 리턴하고 프로그램을 종료합니다.</td>
+          <td>
+            <code>return <code>arg</code></code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr>
+          <th>명령어</th>
+          <th>설명</th>
+          <th>대응되는 코드</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>8</td>
+          <td>임시변수에 <code>arg</code>를 저장합니다</td>
+          <td>
+            <code>temp = <code>arg</code></code>
+          </td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>임시변수에 <code>arg</code>를 더해서 저장합니다</td>
+          <td>
+            <code>temp += <code>arg</code></code>
+          </td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>임시변수에 <code>arg</code>를 빼서 저장합니다</td>
+          <td>
+            <code>temp -= <code>arg</code></code>
+          </td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>임시변수에 <code>arg</code>를 곱해서 저장합니다</td>
+          <td>
+            <code>temp *= <code>arg</code></code>
+          </td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>임시변수에 <code>arg</code>를 나눠서 저장합니다</td>
+          <td>
+            <code>temp /= <code>arg</code></code>
+          </td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>임시변수에 <code>arg</code>를 나머지 연산해서 저장합니다</td>
+          <td>
+            <code>temp %= <code>arg</code></code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr>
+          <th>명령어</th>
+          <th>설명</th>
+          <th>대응되는 코드</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>16</td>
+          <td>스토리지 커서를 <code>arg</code>로 설정합니다</td>
+          <td>
+            <code>cursor = <code>arg</code></code>
+          </td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>스토리지 커서를 <code>arg</code>만큼 증가시킵니다</td>
+          <td>
+            <code>cursor += <code>arg</code></code>
+          </td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>스토리지 커서를 <code>arg</code>만큼 감소시킵니다</td>
+          <td>
+            <code>cursor -= <code>arg</code></code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr>
+          <th>명령어</th>
+          <th>설명</th>
+          <th>대응되는 코드</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>32</td>
+          <td>임시변수의 값을 현재 참조중인 스토리지에 저장합니다</td>
+          <td>
+            <code>storage[cursor] = <code>temp</code></code>
+          </td>
+        </tr>
+        <tr>
+          <td>33</td>
+          <td>임시변수의 값을 현재 참조중인 스토리지에 더해서 저장합니다</td>
+          <td>
+            <code>storage[cursor] += <code>temp</code></code>
+          </td>
+        </tr>
+        <tr>
+          <td>34</td>
+          <td>임시변수의 값을 현재 참조중인 스토리지에 빼서 저장합니다</td>
+          <td>
+            <code>storage[cursor] -= <code>temp</code></code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr>
+          <th>명령어</th>
+          <th>설명</th>
+          <th>대응되는 코드</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>64</td>
+          <td>
+            stdin을 정수로 파싱하여 임시변수에 저장합니다. 입력이 numeric하지
+            않다면 unicode로 변환됩니다.
+          </td>
+          <td>
+            <code>temp = int(input())</code>
+          </td>
+        </tr>
+        <tr>
+          <td>65</td>
+          <td>임시변수를 숫자로 출력합니다</td>
+          <td>
+            <code>print(temp)</code>
+          </td>
+        </tr>
+        <tr>
+          <td>66</td>
+          <td>임시변수를 문자로 출력합니다</td>
+          <td>
+            <code>print(chr(temp))</code>
+          </td>
+        </tr>
+        <tr>
+          <td>67</td>
+          <td>개행</td>
+          <td>
+            <code>print()</code>
+          </td>
+        </tr>
+        <tr>
+          <td>68</td>
+          <td>
+            임시변수가 0이라면 <code>arg</code>번째 체크포인트로 이동합니다
+          </td>
+          <td>
+            <code>if temp == 0: jump(<code>arg</code>)</code>
+          </td>
+        </tr>
+        <tr>
+          <td>69</td>
+          <td>
+            임시변수가 0이 아니라면 <code>arg</code>번째 체크포인트로 이동합니다
+          </td>
+          <td>
+            <code>if temp != 0: jump(<code>arg</code>)</code>
+          </td>
+        </tr>
+        <tr>
+          <td>70</td>
+          <td>
+            현재 코드 실행 위치에 <code>arg</code>번째 체크포인트를 설정합니다
+          </td>
+          <td>
+            <code>checkpoint(arg)</code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
