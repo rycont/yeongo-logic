@@ -219,6 +219,7 @@ class Logic {
     print(text) {
         // console.log('STDOUT:', text)
         outputTextarea.value += text
+        outputTextarea.scrollTop = outputTextarea.scrollHeight
     }
 }
 
